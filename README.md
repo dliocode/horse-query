@@ -1,6 +1,6 @@
 # Horse-Query
 
-![](https://img.shields.io/github/stars/dliocode/horse-query.svg) ![](https://img.shields.io/github/forks/dliocode/horse-query.svg) ![](https://img.shields.io/github/tag/dliocode/horse-query.svg) ![](https://img.shields.io/github/release/dliocode/horse-query.svg) ![](https://img.shields.io/github/issues/dliocode/horse-query.svg)
+![](https://img.shields.io/github/stars/dliocode/horse-query.svg) ![](https://img.shields.io/github/forks/dliocode/horse-query.svg) ![](https://img.shields.io/github/v/tag/dliocode/horse-query.svg) ![](https://img.shields.io/github/v/release/dliocode/horse-query.svg) ![](https://img.shields.io/github/issues/dliocode/horse-query.svg)
 
 Support: developer.dlio@gmail.com
 
