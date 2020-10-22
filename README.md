@@ -13,6 +13,8 @@ $ boss install github.com/dliocode/horse-query
 
 ## Usage
 
+*You can use any component inherited from TDataSet*
+
 ```delphi
 uses Horse, Horse.Query;
 
@@ -48,6 +50,28 @@ begin
       Memtable.ApplyUpdates;
 
       Res.Send<TFDMemtable>(Memtable);
+    end);
+
+  THorse.Listen(9000);
+end.
+```
+
+
+```delphi
+uses Horse, Horse.Query;
+
+begin
+  THorse.Use(Query);
+
+  THorse.Get('/list',
+    procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
+    var
+      List: TFDQuery;
+    begin
+      List := TFDQuery.Create(nil);
+      List.Open('SELECT * FROM LIST');
+
+      Res.Send<TFDQuery>(List);
     end);
 
   THorse.Listen(9000);
