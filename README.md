@@ -50,12 +50,7 @@ begin
       Res.Send<TFDMemtable>(Memtable);
     end);
 
-  THorse.Listen(9002,
-    procedure(Horse: THorse)
-    begin
-      Writeln(Format('Server started in %s:%d', [THorse.Host, THorse.Port]));
-      Writeln('Press return to stop...');
-    end);
+  THorse.Listen(9000);
 end.
 ```
 
