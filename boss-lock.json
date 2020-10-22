@@ -1,0 +1,22 @@
+{
+	"hash": "d41d8cd98f00b204e9800998ecf8427e",
+	"updated": "2020-10-21T12:51:45.5032562-03:00",
+	"installedModules": {
+		"github.com/hashload/horse": {
+			"name": "horse",
+			"version": "v2.0.2",
+			"hash": "5c32de1d8aae94b0c88c40158dc01739",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/viniciussanchez/dataset-serialize": {
+			"name": "dataset-serialize",
+			"version": "v2.2.0",
+			"hash": "243141f50f27fc39b1ef83733f480989",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}
