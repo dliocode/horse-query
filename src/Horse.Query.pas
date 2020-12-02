@@ -18,31 +18,31 @@ var
   LJA: TJSONArray;
   LOldLowerCamelCase: Boolean;
 begin
-  Next;
+  try
+    Next;
+  finally
+    LContent := THorseHackResponse(Res).GetContent;
 
-  LContent := THorseHackResponse(Res).GetContent;
+    if Assigned(LContent) and LContent.InheritsFrom(TDataSet) then
+    begin
+      LOldLowerCamelCase := TDataSetSerializeConfig.GetInstance.LowerCamelCase;
+      TDataSetSerializeConfig.GetInstance.LowerCamelCase := False;
 
-  if Assigned(LContent) and LContent.InheritsFrom(TDataSet) then
-  begin
-    LOldLowerCamelCase := TDataSetSerializeConfig.GetInstance.LowerCamelCase;
-    TDataSetSerializeConfig.GetInstance.LowerCamelCase := False;
+      try
+        LJA := TDataSet(LContent).ToJSONArray;
+      finally
+        TDataSetSerializeConfig.GetInstance.LowerCamelCase := LOldLowerCamelCase;
+      end;
 
-    try
-      LJA := TDataSet(LContent).ToJSONArray;
-    finally
-      TDataSetSerializeConfig.GetInstance.LowerCamelCase := LOldLowerCamelCase;
+      if Assigned(LJA) then
+      begin
+        Res.Send(LJA.ToString);
+        FreeAndNil(LJA);
+      end
+      else
+        Res.Send('[]');
     end;
-  end
-  else
-    Exit;
-
-  if Assigned(LJA) then
-  begin
-    Res.Send(LJA.ToString);
-    FreeAndNil(LJA);
-  end
-  else
-    Res.Send('[]');
+  end;
 end;
 
 end.
