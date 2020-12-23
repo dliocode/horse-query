@@ -2,12 +2,13 @@ program Sample;
 
 uses
   Horse,
-  Horse.Query in '..\src\Horse.Query.pas',
+  Horse.Jhonson, Horse.Query,
   FireDAC.Comp.Client, Data.DB,
   System.SysUtils;
 
 begin
-  THorse.Use(Query);
+  THorse.Use(Jhonson);
+  THorse.Use(Query); //Must come after Jhonson middleware
 
   THorse.Get('/ping',
     procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
@@ -40,7 +41,7 @@ begin
       Res.Send<TFDMemtable>(Memtable);
     end);
 
-  THorse.Listen(9002,
+  THorse.Listen(9000,
     procedure(Horse: THorse)
     begin
       Writeln(Format('Server started in %s:%d', [THorse.Host, THorse.Port]));
