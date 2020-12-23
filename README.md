@@ -16,10 +16,16 @@ $ boss install github.com/dliocode/horse-query
 *You can use any component inherited from TDataSet*
 
 ```delphi
-uses Horse, Horse.Query;
+uses
+  Horse,
+  Horse.Jhonson, Horse.Query,
+  FireDAC.Comp.Client, Data.DB,
+  System.SysUtils;
 
 begin
-  THorse.Use(Query);
+begin
+  THorse.Use(Jhonson);
+  THorse.Use(Query); //Must come after Jhonson middleware
 
   THorse.Get('/ping',
     procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
@@ -58,10 +64,14 @@ end.
 
 
 ```delphi
-uses Horse, Horse.Query;
+uses
+  Horse,
+  Horse.Jhonson, Horse.Query,
+  FireDAC.Comp.Client, Data.DB;
 
 begin
-  THorse.Use(Query);
+  THorse.Use(Jhonson);
+  THorse.Use(Query); //Must come after Jhonson middleware
 
   THorse.Get('/list',
     procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)

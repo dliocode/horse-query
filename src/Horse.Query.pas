@@ -35,12 +35,9 @@ begin
       end;
 
       if Assigned(LJA) then
-      begin
-        Res.Send(LJA.ToString);
-        FreeAndNil(LJA);
-      end
+        Res.Send<TJSONArray>(LJA)
       else
-        Res.Send('[]');
+        Res.Send<TJSONArray>(TJSONArray.Create);
     end;
   end;
 end;
