@@ -3,7 +3,8 @@ program Sample;
 uses
   Horse,
   Horse.Jhonson, Horse.Query,
-  FireDAC.Comp.Client, Data.DB,
+  FireDAC.Comp.Client,
+  Data.DB,
   System.SysUtils;
 
 begin
