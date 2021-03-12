@@ -11,6 +11,10 @@ Middleware for Horse. Use to send a dataset in json format.
 $ boss install github.com/dliocode/horse-query
 ```
 
+### Donation
+
+If this project help you reduce time to develop, you can give me a cup of coffee :) <a href="https://www.paypal.com/donate?hosted_button_id=2T7W4PL7YGJZW" target="_blank" rel="noopener noreferrer"><img width="150" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"></a>
+
 ## Usage
 
 *You can use any component inherited from TDataSet*
